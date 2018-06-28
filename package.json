@@ -1,0 +1,36 @@
+{
+  "name": "portfolio-visuel",
+  "version": "0.0.0",
+  "description": "Portfolio visuel.",
+  "license": "AGPL-3.0",
+  "repository": "millette/portfolio-visuel",
+  "author": {
+    "name": "Robin Millette",
+    "email": "robin@millette.info",
+    "url": "http://robin.millette.info"
+  },
+  "scripts": {
+    "lint": "standard",
+    "dev": "standard && next",
+    "build": "standard && next build && next-build-id",
+    "export": "next export",
+    "start": "next start",
+    "clean": "rm -fr out .next",
+    "all": "git diff --quiet --ignore-submodules HEAD && standard && rm -fr out .next && next build && next-build-id && next export"
+  },
+  "devDependencies": {
+    "next-build-id": "^2.0.1",
+    "next-progressbar": "^1.0.0",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "@rematch/core": "1.0.0-beta.5",
+    "detect-node": "^2.0.3",
+    "finity": "^0.5.4",
+    "next": "^6.1.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  }
+}
