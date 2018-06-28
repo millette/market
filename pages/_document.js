@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
               <div className='content has-text-centered'>
                 <p>
                   &copy;2018 <a target='_blank' href={author.url}>{author.name}</a><br />
-                  <a target='_blank' href={`http://github.com/${repository}`}>Sources</a>{' '}
+                  <a target='_blank' href={`https://github.com/${repository}`}>Sources</a>{' '}
                   (<BuildLink buildId={this.props.__NEXT_DATA__.buildId} />)
                 </p>
               </div>
