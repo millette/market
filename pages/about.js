@@ -4,16 +4,14 @@ import React, { Fragment } from 'react'
 import Header from '../shared/components/header'
 import { initStore } from '../shared/store'
 import withRematch from '../shared/utils/withRematch'
+import { description } from '../package.json'
 
 const About = () => <Fragment>
   <Header title='À propos' />
   <section className='section'>
     <div className='container'>
       <div className='content'>
-        <p>
-          Vous voulez <b>prendre de bonnes habitudes</b> et
-          vous <b>débarrasser des mauvaises</b>? Ce service est pour vous!
-        </p>
+        <p>{description}</p>
         <div className='columns'>
           <div className='column'>
             <h3 className='title is-3'>Inscription</h3>

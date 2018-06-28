@@ -4,6 +4,7 @@ import React, { Fragment } from 'react'
 import Header from '../shared/components/header'
 import { initStore } from '../shared/store'
 import withRematch from '../shared/utils/withRematch'
+import { description } from '../package.json'
 
 const Home = () => <Fragment>
   <Header title='Accueil' subtitle='Prototype'>
@@ -18,10 +19,7 @@ const Home = () => <Fragment>
   </Header>
   <section className='section'>
     <div className='container'>
-      <p>
-        Vous voulez <b>prendre de bonnes habitudes</b> et
-        vous <b>débarrasser des mauvaises</b>? Ce service est pour vous!
-      </p>
+      <p>{description}</p>
     </div>
   </section>
 </Fragment>

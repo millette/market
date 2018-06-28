@@ -6,6 +6,8 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import BuildLink from '../shared/components/build-link'
+// import * as pkg from '../package.json'
+import { repository, author } from '../package.json'
 
 export default class MyDocument extends Document {
   static async getInitialProps (ctx) {
@@ -26,8 +28,8 @@ export default class MyDocument extends Document {
             <div className='container'>
               <div className='content has-text-centered'>
                 <p>
-                  &copy;2018 <a target='_blank' href='http://robin.millette.info/'>Robin Millette</a><br />
-                  <a target='_blank' href='http://github.com/millette/portfolio-visuel'>Sources</a>{' '}
+                  &copy;2018 <a target='_blank' href={author.url}>{author.name}</a><br />
+                  <a target='_blank' href={`http://github.com/${repository}`}>Sources</a>{' '}
                   (<BuildLink buildId={this.props.__NEXT_DATA__.buildId} />)
                 </p>
               </div>
