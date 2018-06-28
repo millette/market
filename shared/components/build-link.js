@@ -1,7 +1,6 @@
 'use strict'
 
 import React, { Fragment } from 'react'
-// import * as pkg from '../../package.json'
 import { repository } from '../../package.json'
 
 const BuildLink = ({ buildId }) => {

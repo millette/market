@@ -6,7 +6,6 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import BuildLink from '../shared/components/build-link'
-// import * as pkg from '../package.json'
 import { repository, author } from '../package.json'
 
 export default class MyDocument extends Document {
