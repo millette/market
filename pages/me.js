@@ -12,6 +12,7 @@ const Me = (props) => {
       <section className='section'>
         <div className='container'>
           <p>Salut {props.auth.name}.</p>
+          <pre>{JSON.stringify(props.auth, null, '  ')}</pre>
         </div>
       </section>
     </Fragment>
