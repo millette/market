@@ -32,4 +32,4 @@ Fork and branch at will.
 
 ----
 
-AGPL-v3 © [Robin Millette](http://robin.millette.info/)
+[AGPL-v3](./LICENSE.md) © 2018 [Robin Millette](http://robin.millette.info/)
