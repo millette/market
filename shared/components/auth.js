@@ -71,7 +71,5 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = ({ auth }) => auth
-// TODO
-// Logout should update user in volunteers if appropriate (hours left, items, etc.)
 
 export default connect(mapState, mapDispatch)(Auth)

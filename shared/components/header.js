@@ -12,7 +12,7 @@ const Header = (props) => <Fragment>
       <div className='container'>
         <h1 className='title is-1'>{props.title || ''}</h1>
         {props.subtitle ? <h1 className='subtitle is-2'>{props.subtitle || ''}</h1> : ''}
-        {props.children ? props.children : ''}
+        {props.children}
       </div>
     </div>
   </section>

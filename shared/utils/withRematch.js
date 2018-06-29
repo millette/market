@@ -1,5 +1,7 @@
 'use strict'
 
+// adapted from https://github.com/zeit/next.js/tree/canary/examples/with-rematch
+
 import React from 'react'
 import { connect, Provider } from 'react-redux'
 import isServer from 'detect-node'

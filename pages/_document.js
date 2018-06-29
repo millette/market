@@ -1,5 +1,12 @@
 'use strict'
 
+/*
+Document wrapper, author and repository info come from package.json
+
+author must be an object with both url and name keys.
+repository must be a github repository, in the form USERNAME/REPONAME
+*/
+
 // _document is only rendered on the server side and not on the client side
 // Event handlers like onClick can't be added to this file
 

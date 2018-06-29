@@ -1,5 +1,7 @@
 'use strict'
 
+// Frontpage, description is taken from package.json
+
 import React, { Fragment } from 'react'
 import Header from '../shared/components/header'
 import { initStore } from '../shared/store'

@@ -1,5 +1,7 @@
 'use strict'
 
+// Profile page, for a logged-in user
+
 import React, { Fragment } from 'react'
 import Header from '../shared/components/header'
 import { initStore } from '../shared/store'
@@ -19,8 +21,6 @@ const Me = (props) => {
   )
 }
 
-const mapState = state => ({
-  auth: state.auth
-})
+const mapState = state => ({ auth: state.auth })
 
 export default withRematch(initStore, mapState)(Me)
