@@ -36,9 +36,6 @@ class Img extends Component {
       <Header title='Img' />
       <section className='section'>
         <div className='container'>
-          <p>
-            On va uploader une image...
-          </p>
           {this.state.files.map((f) => <Fragment key={f.name}>
             lastModified: {f.lastModified}<br />
             {f.lastModifiedDate && <Fragment>lastModifiedDate: {f.lastModifiedDate}<br /></Fragment>}
@@ -47,8 +44,8 @@ class Img extends Component {
             size: {f.size}<br />
             type: {f.type}<br />
           </Fragment>)}
-          <Dropzone onDrop={this.onDrop}>
-            {this.state.files.map(({ name, preview }) => <img key={name} src={preview} />)}
+          <Dropzone onDrop={this.onDrop} accept={['image/png', 'image/jpeg']}>
+            {this.state.files.length ? this.state.files.map(({ name, preview }) => <img key={name} src={preview} />) : <p>Envoyer des images</p>}
           </Dropzone>
         </div>
       </section>
