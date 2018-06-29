@@ -9,7 +9,7 @@ import withRematch from '../shared/utils/withRematch'
 import { description } from '../package.json'
 
 const Home = () => <Fragment>
-  <Header title='Accueil' subtitle='Prototype'>
+  <Header title='Accueil' subtitle={description.slice(0, -1)}>
     <p className='is-italic'>
       <b>ATTENTION</b> Pour tester ce site, ne rechargez pas la page
       à moins de vouloir remettre les valeurs à neufs.
@@ -21,7 +21,27 @@ const Home = () => <Fragment>
   </Header>
   <section className='section'>
     <div className='container'>
-      <p>{description}</p>
+      <div className='columns'>
+        <div className='column'>
+          <h3 className='title is-3'>Portfolio visuel</h3>
+          <p>
+            Pratique pour tout enseignement sur le design
+            et les autres domaines du visuel.
+          </p>
+        </div>
+        <div className='column'>
+          <h3 className='title is-3'>Professeurs</h3>
+          <p>
+            Pourra évaluer les exercices et en exposer une sélection.
+          </p>
+        </div>
+        <div className='column'>
+          <h3 className='title is-3'>Étudiants</h3>
+          <p>
+            Pourra soumettre ses travaux et obtenir ses résultats.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </Fragment>
