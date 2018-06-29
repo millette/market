@@ -3,8 +3,14 @@
 export default {
   state: { },
   reducers: {
-    login: (state, payload) => ({ ...state, ...payload }),
-    logout: (state) => ({ })
+    login: (state, payload) => ({ ...payload, loginAt: Date.now() }),
+    logout: (state) => {
+      const loginOut = Date.now()
+      return {
+        loginOut,
+        lasted: Math.round((loginOut - state.loginAt) / 1000)
+      }
+    }
   },
   effects: {
     loginAsync (name, rootState) {
