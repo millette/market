@@ -17,6 +17,7 @@ Output is a static html website enhanced with React.
 
 ```
 git clone https://github.com/millette/portfolio-visuel.git
+git checkout starter
 cd portfolio-visuel
 yarn # or npm install if you don't use yarn
 yarn dev # or npm run dev and see <http://localhost:3000/>
