@@ -43,18 +43,12 @@ class Img extends Component {
               </Dropzone>
             </div>
             <div className='column'>
-              {this.state.files.map((f) => <div key={f.name}>
-                <h5 className='title is-5 is-marginless'>{f.name}</h5>
-                <ul style={{ marginBottom: '1em' }}>
-                  <li><b>lastModified: </b>{new Date(f.lastModified).toISOString()}</li>
-                  {f.lastModifiedDate && <Fragment>
-                    <li><b>lastModifiedDate: </b>{new Date(f.lastModifiedDate).toISOString()}</li>
-                  </Fragment>}
-                  {f.webkitRelativePath && <Fragment>
-                    <li><b>webkitRelativePath: </b>{f.webkitRelativePath}</li>
-                  </Fragment>}
-                  <li><b>size: </b>{f.size}</li>
-                  <li><b>type: </b>{f.type}</li>
+              {this.state.files.map((f) => <div key={f.name} style={{ marginBottom: '1em' }}>
+                <ul>
+                  <li><b>{f.name}</b></li>
+                  <li>{new Date(f.lastModified).toString()}</li>
+                  <li>{Math.round(f.size / 102.4) / 10} KiB</li>
+                  <li>{f.type}</li>
                 </ul>
               </div>)}
             </div>
