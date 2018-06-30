@@ -17,6 +17,8 @@ const obj = {
     backgroundColor: '#eee'
   },
   default: {
+    maxWidth: '400px',
+    padding: '1em',
     borderWidth: 2,
     borderColor: '#666',
     borderStyle: 'dashed',

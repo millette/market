@@ -35,7 +35,7 @@ class ImageUploader extends Component {
 
   render () {
     return <div className='columns'>
-      <div className='column'>
+      <div className='column is-narrow'>
         <h3 className='title is-3'>Upload</h3>
         <Dropzone
           minSize={this.minSize}
@@ -48,17 +48,17 @@ class ImageUploader extends Component {
           onDrop={this.onDrop}
           accept={['image/png', 'image/jpeg']}
         >
-          {this.state.files ? this.state.files.map(({ name, preview }) => <img key={name} src={preview} />) : <p>Envoyer des images</p>}
+          {this.state.files ? this.state.files.map(({ name, preview }) => <div key={name} className='box'><img src={preview} /></div>) : <p>Envoyer des images</p>}
         </Dropzone>
       </div>
       {this.state.files && <div className='column'>
         <h3 className='title is-3'>Accepted</h3>
         {this.state.files.map((f) => <div key={f.name} style={{ marginBottom: '1em' }}>
           <ul>
-            <li><b>{f.name}</b></li>
-            <li>{new Date(f.lastModified).toString()}</li>
+            <li><b>{f.name.slice(0, 15)}</b></li>
+            <li>{new Date(f.lastModified).toISOString()}</li>
             <li>{Math.round(f.size / 102.4) / 10} KiB</li>
-            <li>{f.type}</li>
+            <li>{f.type.slice(0, 15)}</li>
           </ul>
         </div>)}
       </div>}
@@ -66,10 +66,10 @@ class ImageUploader extends Component {
         <h3 className='title is-3'>Rejected</h3>
         {this.state.rejected.map((f) => <div key={f.name} style={{ marginBottom: '1em' }}>
           <ul>
-            <li><b>{f.name}</b></li>
-            <li>{new Date(f.lastModified).toString()}</li>
+            <li><b>{f.name.slice(0, 15)}</b></li>
+            <li>{new Date(f.lastModified).toISOString()}</li>
             <li>{Math.round(f.size / 102.4) / 10} KiB <b>{f.size < this.minSize ? 'is too small' : f.size > this.maxSize ? 'is too large' : ''}</b></li>
-            <li>{f.type} {(f.type !== 'image/png') && (f.type !== 'image/jpeg') && <b>is wrong type</b>}</li>
+            <li>{f.type.slice(0, 15)} {(f.type !== 'image/png') && (f.type !== 'image/jpeg') && <b>is wrong type</b>}</li>
           </ul>
         </div>)}
       </div>}
