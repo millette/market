@@ -7,6 +7,7 @@ import Header from '../shared/components/header'
 import { initStore } from '../shared/store'
 import withRematch from '../shared/utils/withRematch'
 import Dropzone from 'react-dropzone'
+import dropzoneStyles from '../shared/utils/dropzone-styles'
 
 class Img extends Component {
   constructor () {
@@ -17,10 +18,7 @@ class Img extends Component {
 
   cleanup () {
     if (window && window.URL && window.URL.revokeObjectURL) {
-      this.state.files.forEach(({ name, preview }) => {
-        console.log('ciao', name)
-        window.URL.revokeObjectURL(preview)
-      })
+      this.state.files.forEach(({ name, preview }) => window.URL.revokeObjectURL(preview))
     }
   }
 
@@ -38,7 +36,15 @@ class Img extends Component {
         <div className='container'>
           <div className='columns'>
             <div className='column'>
-              <Dropzone onDrop={this.onDrop} accept={['image/png', 'image/jpeg']}>
+              <Dropzone
+                activeStyle={dropzoneStyles.active}
+                acceptStyle={dropzoneStyles.accepted}
+                rejectStyle={dropzoneStyles.rejected}
+                disabledStyle={dropzoneStyles.disabled}
+                style={dropzoneStyles.default}
+                onDrop={this.onDrop}
+                accept={['image/png', 'image/jpeg']}
+              >
                 {this.state.files.length ? this.state.files.map(({ name, preview }) => <img key={name} src={preview} />) : <p>Envoyer des images</p>}
               </Dropzone>
             </div>
