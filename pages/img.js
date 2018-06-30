@@ -36,17 +36,29 @@ class Img extends Component {
       <Header title='Img' />
       <section className='section'>
         <div className='container'>
-          {this.state.files.map((f) => <Fragment key={f.name}>
-            lastModified: {f.lastModified}<br />
-            {f.lastModifiedDate && <Fragment>lastModifiedDate: {f.lastModifiedDate}<br /></Fragment>}
-            name: {f.name}<br />
-            {f.webkitRelativePath && <Fragment>webkitRelativePath: {f.webkitRelativePath}<br /></Fragment>}
-            size: {f.size}<br />
-            type: {f.type}<br />
-          </Fragment>)}
-          <Dropzone onDrop={this.onDrop} accept={['image/png', 'image/jpeg']}>
-            {this.state.files.length ? this.state.files.map(({ name, preview }) => <img key={name} src={preview} />) : <p>Envoyer des images</p>}
-          </Dropzone>
+          <div className='columns'>
+            <div className='column'>
+              <Dropzone onDrop={this.onDrop} accept={['image/png', 'image/jpeg']}>
+                {this.state.files.length ? this.state.files.map(({ name, preview }) => <img key={name} src={preview} />) : <p>Envoyer des images</p>}
+              </Dropzone>
+            </div>
+            <div className='column'>
+              {this.state.files.map((f) => <div key={f.name}>
+                <h5 className='title is-5 is-marginless'>{f.name}</h5>
+                <ul style={{ marginBottom: '1em' }}>
+                  <li><b>lastModified: </b>{new Date(f.lastModified).toISOString()}</li>
+                  {f.lastModifiedDate && <Fragment>
+                    <li><b>lastModifiedDate: </b>{new Date(f.lastModifiedDate).toISOString()}</li>
+                  </Fragment>}
+                  {f.webkitRelativePath && <Fragment>
+                    <li><b>webkitRelativePath: </b>{f.webkitRelativePath}</li>
+                  </Fragment>}
+                  <li><b>size: </b>{f.size}</li>
+                  <li><b>type: </b>{f.type}</li>
+                </ul>
+              </div>)}
+            </div>
+          </div>
         </div>
       </section>
     </Fragment>
