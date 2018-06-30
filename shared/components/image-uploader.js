@@ -1,21 +1,25 @@
 'use strict'
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import dropzoneStyles from '../utils/dropzone-styles'
 
 class ImageUploader extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = { files: false, rejected: false }
     this.onDrop = this.onDrop.bind(this)
-    this.minSize = this.props.minSize || 10240
-    this.maxSize = this.props.maxSize || 6144000
+    this.minSize = props.minSize || 10240
+    this.maxSize = props.maxSize || 6144000
   }
 
   cleanup () {
-    if (this.state.files && window && window.URL && window.URL.revokeObjectURL) {
-      this.state.files.forEach(({ name, preview }) => window.URL.revokeObjectURL(preview))
+    if (!window || !window.URL || !window.URL.revokeObjectURL) { return }
+    if (this.state.rejected) {
+      this.state.rejected.forEach(({ preview }) => window.URL.revokeObjectURL(preview))
+    }
+    if (this.state.files) {
+      this.state.files.forEach(({ preview }) => window.URL.revokeObjectURL(preview))
     }
   }
 
@@ -29,7 +33,7 @@ class ImageUploader extends Component {
     })
   }
 
-  render() {
+  render () {
     return <div className='columns'>
       <div className='column'>
         <h3 className='title is-3'>Upload</h3>
