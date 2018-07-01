@@ -3,7 +3,12 @@
 // WIP
 
 export default {
-  state: [],
+  state: [
+    {
+      name: 'Jean Crest',
+      classes: [0]
+    }
+  ],
   reducers: {
     // login: (state, payload) => ({ ...payload, loginAt: Date.now() }),
   },

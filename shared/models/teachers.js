@@ -3,7 +3,11 @@
 // WIP
 
 export default {
-  state: [],
+  state: [
+    {
+      name: 'Jo Blo'
+    }
+  ],
   reducers: {
     // login: (state, payload) => ({ ...payload, loginAt: Date.now() }),
   },

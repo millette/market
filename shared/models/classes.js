@@ -3,7 +3,14 @@
 // WIP
 
 export default {
-  state: [],
+  state: [
+    {
+      year: 2018,
+      session: 'winter',
+      teacher: 0,
+      course: 0
+    }
+  ],
   reducers: {
     // login: (state, payload) => ({ ...payload, loginAt: Date.now() }),
   },
