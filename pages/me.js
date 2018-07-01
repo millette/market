@@ -21,6 +21,6 @@ const Me = (props) => {
   )
 }
 
-const mapState = state => ({ auth: state.auth })
+const mapState = (state) => ({ auth: state.auth })
 
 export default withRematch(initStore, mapState)(Me)
