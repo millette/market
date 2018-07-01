@@ -1,10 +1,6 @@
 'use strict'
 
-/*
-About page, description and repository come from package.json
-
-repository must be a github repository, in the form USERNAME/REPONAME
-*/
+// State page, ouput the whole app state
 
 import React, { Fragment } from 'react'
 import Header from '../shared/components/header'
