@@ -13,11 +13,10 @@ import withRematch from '../shared/utils/withRematch'
 import { repository, description } from '../package.json'
 
 const About = () => <Fragment>
-  <Header title='À propos' />
+  <Header title='À propos' subtitle={description.slice(0, -1)} />
   <section className='section'>
     <div className='container'>
       <div className='content'>
-        <p>{description}</p>
         <div className='columns'>
           <div className='column'>
             <h3 className='title is-3'>Inscription</h3>

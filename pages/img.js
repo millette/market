@@ -9,7 +9,7 @@ import withRematch from '../shared/utils/withRematch'
 import ImageUploader from '../shared/components/image-uploader'
 
 const Img = () => <Fragment>
-  <Header title='Img' />
+  <Header title='Images' />
   <section className='section'>
     <div className='container'>
       <ImageUploader />

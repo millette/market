@@ -21,25 +21,34 @@ const Home = () => <Fragment>
   </Header>
   <section className='section'>
     <div className='container'>
-      <div className='columns'>
-        <div className='column'>
-          <h3 className='title is-3'>Portfolio visuel</h3>
-          <p>
-            Pratique pour tout enseignement sur le design
-            et les autres domaines du visuel.
-          </p>
-        </div>
-        <div className='column'>
-          <h3 className='title is-3'>Professeurs</h3>
-          <p>
-            Pourra évaluer les exercices et en exposer une sélection.
-          </p>
-        </div>
-        <div className='column'>
-          <h3 className='title is-3'>Étudiants</h3>
-          <p>
-            Pourra soumettre ses travaux et obtenir ses résultats.
-          </p>
+      <div className='content'>
+        <div className='columns'>
+          <div className='column'>
+            <h3 className='title is-3'>Portfolio visuel</h3>
+            <p>
+              Pratique pour tout enseignement sur le design
+              et les autres domaines du visuel.
+            </p>
+          </div>
+          <div className='column'>
+            <h3 className='title is-3'>Professeurs</h3>
+            <p>
+              Pourra évaluer les exercices et en exposer une sélection.
+            </p>
+            <ul>
+              <li>Gestion de plusieurs classes</li>
+              <li>Gestion de plusieurs cours</li>
+            </ul>
+          </div>
+          <div className='column'>
+            <h3 className='title is-3'>Étudiants</h3>
+            <p>
+              Pourra soumettre ses travaux et obtenir ses résultats.
+            </p>
+            <ul>
+              <li>Peut participer à plusieurs cours</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
