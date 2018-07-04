@@ -8,7 +8,7 @@ export default {
     // .filter((x) => x.code_programme.toUpperCase() === '570E0')
     // .filter((x) => x.code_programme.toUpperCase().indexOf('570') === 0)
     // .filter((x) => x.code_programme.toUpperCase().indexOf('57') === 0)
-    .filter((x) => x.description.toLowerCase().indexOf('design') !== -1)
+    // .filter((x) => x.description.toLowerCase().indexOf('design') !== -1)
     .map((x) => {
       return {
         ...x,
@@ -21,7 +21,7 @@ export default {
         commentaires: x.commentaires
           .split('\n')
           .map((y) => y.trim())
-          .filter(Boolean),
+          .filter(Boolean)
       }
     }),
   reducers: {
