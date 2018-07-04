@@ -1,6 +1,6 @@
 'use strict'
 
-// State page, ouput the whole app state
+// Programmes page
 
 import React, { Fragment } from 'react'
 import Header from '../shared/components/header'
@@ -35,7 +35,7 @@ const Programmes = (props) => {
         <div className='buttons'>{z}</div>
         <div className='columns is-multiline'>
           {props.programs.filter(only).map((x) => <div key={x.code_programme} className='column is-half'>
-            <Programme {...x} />
+            <Programme cegeps={props.cegeps.filter((z) => z.programmes.indexOf(x.code_programme) !== -1)} {...x} />
           </div>)}
         </div>
       </div>
@@ -45,6 +45,6 @@ const Programmes = (props) => {
 
 Programmes.getInitialProps = ({ query: { famille } }) => ({ famille })
 
-const mapState = (state) => ({ programs: state.programs })
+const mapState = (state) => ({ programs: state.programs, cegeps: state.cegeps })
 
 export default withRematch(initStore, mapState)(Programmes)

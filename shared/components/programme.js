@@ -8,6 +8,13 @@ const Programme = (props) => <div className='content box'>
   <h3 className='subtitle is-3'>{props.code_programme}</h3>
   <p>Catégorie: <span className='tag is-primary'>{props.categorie.libelle}</span></p>
   <p>Famille: <span className='tag is-info'>{props.famille.libelle}</span></p>
+
+  {props.cegeps && (props.cegeps.length > 0) && <Fragment>
+    <h4 className='title is-4'>CÉGEPS</h4>
+    <ul>
+      {props.cegeps.map((x) => <li key={x.code_college}>{x.nom_long}</li>)}
+    </ul>
+  </Fragment>}
   <h4 className='title is-4'>Description</h4>
   {props.description.map((p, i) => <p key={i}>
     {p}
