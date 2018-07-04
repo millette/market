@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Fragment } from 'react'
+import Link from 'next/link'
 import lodashMap from 'lodash.map'
 
 const Programme = (props) => <div className='content box'>
@@ -12,7 +13,11 @@ const Programme = (props) => <div className='content box'>
   {props.cegeps && (props.cegeps.length > 0) && <Fragment>
     <h4 className='title is-4'>CÉGEPS</h4>
     <ul>
-      {props.cegeps.map((x) => <li key={x.code_college}>{x.nom_long}</li>)}
+      {props.cegeps.map((x) => <li key={x.code_college}>
+        <Link href={{ pathname: '/cegeps', query: { cegep: x.code_college } }}><a>
+          {x.nom_long}
+        </a></Link>
+      </li>)}
     </ul>
   </Fragment>}
   <h4 className='title is-4'>Description</h4>

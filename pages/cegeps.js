@@ -7,14 +7,20 @@ import Header from '../shared/components/header'
 import { initStore } from '../shared/store'
 import withRematch from '../shared/utils/withRematch'
 
-const Cegeps = (props) => <Fragment>
-  <Header title='CÉGEPS' />
-  <section className='section'>
-    <div className='container'>
-      <pre>{JSON.stringify(props.cegeps, null, '  ')}</pre>
-    </div>
-  </section>
-</Fragment>
+const Cegeps = (props) => {
+  const only = (x) => !props.cegep || x.code_college === props.cegep
+
+  return <Fragment>
+    <Header title='CÉGEPS' />
+    <section className='section'>
+      <div className='container'>
+        <pre>{JSON.stringify(props.cegeps.filter(only), null, '  ')}</pre>
+      </div>
+    </section>
+  </Fragment>
+}
+
+Cegeps.getInitialProps = ({ query: { cegep } }) => ({ cegep })
 
 const mapState = (state) => ({ cegeps: state.cegeps })
 
