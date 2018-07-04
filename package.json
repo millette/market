@@ -27,6 +27,7 @@
     "@rematch/core": "1.0.0-beta.5",
     "detect-node": "^2.0.3",
     "finity": "^0.5.4",
+    "lodash.map": "^4.6.0",
     "next": "^6.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

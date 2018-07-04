@@ -40,6 +40,7 @@ class MainMenu extends Component {
             <Link href='/about' prefetch><a className='navbar-item'>À propos</a></Link>
             <Link href='/img' prefetch><a className='navbar-item'>Images</a></Link>
             <Link href='/profs' prefetch><a className='navbar-item'>Professeurs</a></Link>
+            <Link href='/programmes' prefetch><a className='navbar-item'>Programmes</a></Link>
             <Link href='/cours' prefetch><a className='navbar-item'>Cours</a></Link>
             <Link href='/classes' prefetch><a className='navbar-item'>Classes</a></Link>
             <Link href='/state' prefetch><a className='navbar-item'>State</a></Link>
