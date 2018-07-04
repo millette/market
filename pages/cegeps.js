@@ -11,7 +11,7 @@ const Cegeps = (props) => {
   const only = (x) => !props.cegep || x.code_college === props.cegep
 
   return <Fragment>
-    <Header title='CÉGEPS' />
+    <Header title='CÉGEPS' subtitle={`Nombre: ${props.cegeps.length}`} />
     <section className='section'>
       <div className='container'>
         <pre>{JSON.stringify(props.cegeps.filter(only), null, '  ')}</pre>
