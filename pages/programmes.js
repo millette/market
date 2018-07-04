@@ -34,7 +34,7 @@ const Programmes = (props) => {
       <div className='container'>
         <div className='buttons'>{z}</div>
         <div className='columns is-multiline'>
-          {props.programs.filter(only).map((x) => <div key={x.code_programme} className='column is-half'>
+          {props.programs.filter(only).slice(0, 50).map((x) => <div key={x.code_programme} className='column is-half'>
             <Programme cegeps={props.cegeps.filter((z) => z.programmes.indexOf(x.code_programme) !== -1)} {...x} />
           </div>)}
         </div>
