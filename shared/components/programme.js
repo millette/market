@@ -6,8 +6,8 @@ import lodashMap from 'lodash.map'
 const Programme = (props) => <div className='content box'>
   <h2 className='title is-2'>{props.nom}</h2>
   <h3 className='subtitle is-3'>{props.code_programme}</h3>
-  <p>Catégorie: <span className='tag is-info'>{props.categorie.libelle}</span></p>
-  <p>Famille: <span className='tag is-primary'>{props.famille.libelle}</span></p>
+  <p>Catégorie: <span className='tag is-primary'>{props.categorie.libelle}</span></p>
+  <p>Famille: <span className='tag is-info'>{props.famille.libelle}</span></p>
   <h4 className='title is-4'>Description</h4>
   {props.description.map((p, i) => <p key={i}>
     {p}
