@@ -56,11 +56,11 @@ const Home = () => <Fragment>
           Le site répertorie tous les programmes du niveau collégial
           de toutes les institutions québécoises.
         </p>
-        <nav className='breadcrumb is-centered' aria-label='breadcrumbs'>
+        <nav className='breadcrumb has-arrow-separator is-centered' aria-label='breadcrumbs'>
           <ul>
             <li><Link href='/programmes'><a>Programme</a></Link></li>
             <li><Link href='/cegeps'><a>CÉGEP</a></Link></li>
-            <li><Link><a>Session</a></Link></li>
+            <li><Link href='/'><a>Session</a></Link></li>
             <li><Link href='/profs'><a>Professeur</a></Link></li>
             <li><Link href='/cours'><a>Cours</a></Link></li>
           </ul>
