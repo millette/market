@@ -5,8 +5,10 @@ import Link from 'next/link'
 import lodashMap from 'lodash.map'
 
 const Programme = (props) => <div className='content box'>
-  <h2 className='title is-2'>{props.nom}</h2>
-  <h3 className='subtitle is-3'>{props.code_programme}</h3>
+  {props.multi && <Link href={{ pathname: '/programmes', query: { programme: props.code_programme } }}><a>
+    <h2 className='title is-2'>{props.nom}</h2>
+    <h3 className='subtitle is-3'>{props.code_programme}</h3>
+  </a></Link>}
   <p>Catégorie: <span className='tag is-primary'>{props.categorie.libelle}</span></p>
   <p>Famille: <span className='tag is-info'>{props.famille.libelle}</span></p>
 
