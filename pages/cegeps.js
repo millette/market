@@ -6,6 +6,7 @@ import React, { Fragment } from 'react'
 import Header from '../shared/components/header'
 import { initStore } from '../shared/store'
 import withRematch from '../shared/utils/withRematch'
+import Cegep from '../shared/components/cegep'
 
 const Cegeps = (props) => {
   const only = (x) => !props.cegep || x.code_college === props.cegep
@@ -14,7 +15,7 @@ const Cegeps = (props) => {
     <Header title='CÉGEPS' subtitle={`Nombre: ${props.cegeps.length}`} />
     <section className='section'>
       <div className='container'>
-        <pre>{JSON.stringify(props.cegeps.filter(only), null, '  ')}</pre>
+        {props.cegeps.filter(only).map((x) => <Cegep key={x.code_college} {...x} />)}
       </div>
     </section>
   </Fragment>
