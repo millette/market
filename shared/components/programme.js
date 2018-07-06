@@ -10,7 +10,7 @@ const Programme = (props) => <div className='content box'>
     <h3 className='subtitle is-3'>{props.code_programme}</h3>
   </a></Link>}
   <p>Catégorie: <span className='tag is-primary'>{props.categorie.libelle}</span></p>
-  <p>Famille: <span className='tag is-info'>{props.famille.libelle}</span></p>
+  <p>Famille: <Link href={{ pathname: '/programmes', query: { famille: props.famille.code } }}><a className='tag is-info'>{props.famille.libelle}</a></Link></p>
 
   {props.cegeps && (props.cegeps.length > 0) && <Fragment>
     <h4 className='title is-4'>CÉGEPS</h4>
