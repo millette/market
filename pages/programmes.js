@@ -39,7 +39,6 @@ const Programmes = (props) => {
   }
 
   const z2 = props.programs.map((x) => {
-    nStudents += (x.statistiques_admission.automne && x.statistiques_admission.automne.tous_admis || 0) + (x.statistiques_admission.hiver && x.statistiques_admission.hiver.tous_admis || 0)
     if (x.famille.code === props.famille) {
       cur = x.famille.libelle
     }
@@ -55,11 +54,19 @@ const Programmes = (props) => {
 
   const allPrograms = props.programs.filter(only)
 
+  let nStudents = 0
+  allPrograms.forEach((x) => {
+    nStudents += (x.statistiques_admission.automne && x.statistiques_admission.automne.tous_admis || 0) + (x.statistiques_admission.hiver && x.statistiques_admission.hiver.tous_admis || 0)
+  })
+
   return <Fragment>
     <Header title='Programmes' subtitle={`${cur}: ${allPrograms.length} sur ${props.programs.length}`} />
     <section className='section'>
       <div className='container'>
         <div className='buttons'>{z}</div>
+        {(nStudents > 0) && <div className='content'>
+          <p>Nombre total d’étudiants: <b>{nStudents}</b>; max <b>{nStudents * 20}&nbsp;$</b> par session; max <b>{nStudents * 20 * 2}&nbsp;$</b> par an.</p>
+        </div>}
         <div className='columns is-multiline'>
           {allPrograms.map((x) => <div key={x.code_programme} className={`column${props.programme ? '' : ' is-half'}`}>
             <Programme multi={!props.programme} cegeps={props.cegeps.filter((z) => z.programmes.indexOf(x.code_programme) !== -1)} {...x} />
