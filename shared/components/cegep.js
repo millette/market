@@ -71,7 +71,7 @@ const Cegep = (props) => <div className='content box'>
     {props.region.libelle}
   </p>
 
-  <h4 className='title is-4'>Adresse</h4>
+  <h4 className='title is-4'>Téléphone</h4>
   <p>{props.no_telephone}</p>
 </div>
 

@@ -10,7 +10,6 @@ import Cegep from '../shared/components/cegep'
 
 const Cegeps = (props) => {
   const only = (x) => !props.cegep || x.code_college === props.cegep
-
   return <Fragment>
     <Header title='CÉGEPS' subtitle={`Nombre: ${props.cegeps.length}`} />
     <section className='section'>
