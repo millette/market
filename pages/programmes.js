@@ -29,7 +29,7 @@ class Programmes extends Component {
 
       if (!found) {
         x.description.forEach((y) => {
-          if ((y.toLowerCase().indexOf('dessin') !== -1) || (y.toLowerCase().indexOf('portfolio') !== -1)) { found = true }
+          if ((y.toLowerCase().indexOf('infographie') !== -1) || (y.toLowerCase().indexOf('expression personnelle') !== -1) || (y.toLowerCase().indexOf('dessin') !== -1) || (y.toLowerCase().indexOf('portfolio') !== -1)) { found = true }
         })
       }
 
