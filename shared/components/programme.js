@@ -60,7 +60,7 @@ const Programme = (props) => <div className='content box'>
         <h5 className='title is-5'>{k}</h5>
         <dl>
           <dt>Tous admis</dt>
-          <dd>{v.tous_admis}</dd>
+          <dd>{v.tous_admis} {(v.tous_admis > 1) && (props.cegeps.length > 1) && <i>(env. {Math.round(v.tous_admis / props.cegeps.length)} par CÉGEP)</i>}</dd>
           <dt>Demandes tour 1</dt>
           <dd>{v.demandes_tour1}</dd>
           <dt>Admis tour 1</dt>
