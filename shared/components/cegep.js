@@ -2,96 +2,77 @@
 
 import React, { Fragment } from 'react'
 import Link from 'next/link'
-// import lodashMap from 'lodash.map'
 
-/*
 const Cegep = (props) => <div className='content box'>
-  <h2 className='title is-2'>{props.nom}</h2>
-  <h3 className='subtitle is-3'>{props.code_programme}</h3>
-  <p>Catégorie: <span className='tag is-primary'>{props.categorie.libelle}</span></p>
-  <p>Famille: <span className='tag is-info'>{props.famille.libelle}</span></p>
+  <Link href={{ pathname: '/cegeps', query: { cegep: props.code_college } }}><a>
+    <h2 className='title is-2'>{props.nom_long}</h2>
+    <h3 className='subtitle is-3'>{props.code_college}</h3>
+  </a></Link>
 
-  {props.cegeps && (props.cegeps.length > 0) && <Fragment>
-    <h4 className='title is-4'>CÉGEPS</h4>
-    <ul>
-      {props.cegeps.map((x) => <li key={x.code_college}>
-        <Link href={{ pathname: '/cegeps', query: { cegep: x.code_college } }}><a>
-          {x.nom_long}
-        </a></Link>
-      </li>)}
-    </ul>
-  </Fragment>}
+  <h4 className='title is-4'>Langue d’enseignement</h4>
+  <p>{props.langue_enseignement.libelle}</p>
+
+  <h4 className='title is-4'>Site web</h4>
+  <p><a target='_blank' href={props.site_web}>{props.site_web}</a></p>
+
+  <h4 className='title is-4'>Contact</h4>
+  <p><a target='_blank' href={props.url_contact}>{props.url_contact}</a></p>
+
   <h4 className='title is-4'>Description</h4>
-  {props.description.map((p, i) => <p key={i}>
-    {p}
-  </p>)}
-  {props.exigences_du_marche && (props.exigences_du_marche.length > 0) && <Fragment>
-    <h4 className='title is-4'>Exigences du marché</h4>
-    <ul>
-      {props.exigences_du_marche.map((x) => x.trim()).filter(Boolean).map((x, i) => <li key={i}>
-        {x}
-      </li>)}
-    </ul>
-  </Fragment>}
+  <p>{props.description}</p>
 
-  {props.milieux_de_travail && (props.milieux_de_travail.length > 0) && <Fragment>
-    <h4 className='title is-4'>Milieux de travail</h4>
-    <ul>
-      {props.milieux_de_travail.map((x, i) => <li key={i}>
-        {x}
-      </li>)}
-    </ul>
-  </Fragment>}
+  <h4 className='title is-4'>Programmes</h4>
+  <ul>
+    {props.programmes.map((x) => <li key={x}>
+      <Link href={{ pathname: '/programmes', query: { programme: x } }}><a>
+        {props.programs[x] || <b>{x}</b>}
+      </a></Link>
+    </li>)}
+  </ul>
 
-  {props.postes_offerts && (props.postes_offerts.length > 0) && <Fragment>
-    <h4 className='title is-4'>Postes offerts</h4>
-    <ul>
-      {props.postes_offerts.map((x, i) => <li key={i}>
-        {x}
-      </li>)}
-    </ul>
-  </Fragment>}
+  <h4 className='title is-4'>Taille</h4>
+  <p>{`${props.taille.libelle}: ${props.taille.value}`}</p>
 
-  {props.statistiques_admission && lodashMap(props.statistiques_admission, (v) => v).filter(Boolean).length > 0 && <Fragment>
-    <h4 className='title is-4'>Statistiques d’admission</h4>
-    <div className='columns'>
-      {lodashMap(props.statistiques_admission, (v, k) => v && <div className='column' key={k}>
-        <h5 className='title is-5'>{k}</h5>
-        <dl>
-          <dt>Tous admis</dt>
-          <dd>{v.tous_admis}</dd>
-          <dt>Demandes tour 1</dt>
-          <dd>{v.demandes_tour1}</dd>
-          <dt>Admis tour 1</dt>
-          <dd>{v.admis_tour1}</dd>
-        </dl>
-      </div>)}
-    </div>
-  </Fragment>}
+  <h4 className='title is-4'>Réseaux sociaux</h4>
+  <ul>
+    {props.reseaux_sociaux.map((x, i) => <li key={i}>
+      <a target='_blank' href={x.adresse}>{x.type}</a>
+    </li>)}
+  </ul>
 
-  <h4 className='title is-4'>Commentaires</h4>
-  {props.description.map((p, i) => <p key={i}>
-    {p}
-  </p>)}
-</div>
-*/
+  <h4 className='title is-4'>Portes ouvertes</h4>
+  <ul>
+    {props.portes_ouvertes.map((x, i) => <li key={i}>{x}</li>)}
+  </ul>
 
-const Cegep = (props) => <div className='content box'>
-  <h2 className='title is-2'>{props.nom_long}</h2>
-  <h3 className='subtitle is-3'>{props.code_college}</h3>
+  <h4 className='title is-4'>Payé</h4>
+  <p>{props.paye ? 'vrai' : 'faux'}</p>
 
-  {props.programmes && (props.programmes.length > 0) && <Fragment>
-    <h4 className='title is-4'>Programmes</h4>
-    <ul>
-      {props.programmes.map((x) => <li key={x}>
-        <Link href={{ pathname: '/programmes', query: { programme: x } }}><a>
-          {x}
-        </a></Link>
-      </li>)}
-    </ul>
-  </Fragment>}
+  <h4 className='title is-4'>Membre ASE</h4>
+  <p>{props.membre_ase ? 'vrai' : 'faux'}</p>
 
-  <pre>{JSON.stringify(props, null, '  ')}</pre>
+  <h4 className='title is-4'>Présence de résidences</h4>
+  <p>{props.presence_residences ? 'vrai' : 'faux'}</p>
+
+  <h4 className='title is-4'>Organisme  Régional d’admission</h4>
+  <p>{props.organisme_regional_admission}</p>
+
+  <h4 className='title is-4'>Lien d’admission</h4>
+  <p><a target='_blank' href={props.lien_admission.url}>{props.lien_admission.description}</a></p>
+
+  <h4 className='title is-4'>Équipes sportives</h4>
+  <ul>
+    {props.equipes_sportives.map((x, i) => <li key={i}>{x}</li>)}
+  </ul>
+
+  <h4 className='title is-4'>Adresse</h4>
+  <p>
+    {props.adresse.map((x, i) => <Fragment key={i}>{x}<br /></Fragment>)}
+    {props.region.libelle}
+  </p>
+
+  <h4 className='title is-4'>Adresse</h4>
+  <p>{props.no_telephone}</p>
 </div>
 
 export default Cegep

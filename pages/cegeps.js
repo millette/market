@@ -15,7 +15,7 @@ const Cegeps = (props) => {
     <Header title='CÉGEPS' subtitle={`Nombre: ${props.cegeps.length}`} />
     <section className='section'>
       <div className='container'>
-        {props.cegeps.filter(only).map((x) => <Cegep key={x.code_college} {...x} />)}
+        {props.cegeps.filter(only).map((x) => <Cegep programs={props.programs} key={x.code_college} {...x} />)}
       </div>
     </section>
   </Fragment>
@@ -23,6 +23,25 @@ const Cegeps = (props) => {
 
 Cegeps.getInitialProps = ({ query: { cegep } }) => ({ cegep })
 
-const mapState = (state) => ({ cegeps: state.cegeps })
+// const mapState = (state) => ({ cegeps: state.cegeps })
+const mapState = (state) => {
+  const obj = {
+    programs: {},
+    cegeps: state.cegeps
+  }
+  state.programs.forEach((x) => {
+    obj.programs[x.code_programme] = x.nom
+  })
+  return obj
+  /*
+  return {
+    programs: state.programs.map((x) => ({
+      nom: x.nom,
+      code_programme: x.code_programme
+    })),
+    cegeps: state.cegeps
+  }
+  */
+}
 
 export default withRematch(initStore, mapState)(Cegeps)
