@@ -14,14 +14,12 @@ const Programmes = (props) => {
   let cur = 'Tous' // hmm
 
   const only = (x) => {
-    // return !props.famille || x.famille.code === props.famille
     if (props.famille) {
       return x.famille.code === props.famille
     }
     if (props.programme) {
       if (x.code_programme === props.programme) {
         cur = x.nom
-        // console.log('SET CUR (only):', cur)
         return true
       }
       return false
@@ -30,17 +28,12 @@ const Programmes = (props) => {
   }
 
   const z2 = props.programs.map((x) => {
-    // hmm
     if (x.famille.code === props.famille) {
       cur = x.famille.libelle
-      // console.log('SET CUR (z2):', cur)
     }
-    // hmm
     return x.famille
   })
 
-  // <a className={`button is-small ${cur === x.libelle ? 'is-info' : 'is-warning'}`}>
-  // hmm <a className='button is-small is-warning'>
   const z = uniq(z2, 'code')
     .map((x) => <Link key={x.code} href={{ pathname: '/programmes', query: { famille: x.code } }}>
       <a className={`button is-small ${cur === x.libelle ? 'is-info' : 'is-warning'}`}>
@@ -50,7 +43,6 @@ const Programmes = (props) => {
 
   const allPrograms = props.programs.filter(only)
 
-  // hmm <Header title='Programmes' subtitle={`${props.programs.filter(only).length} sur ${props.programs.length}`} />
   return <Fragment>
     <Header title='Programmes' subtitle={`${cur}: ${allPrograms.length} sur ${props.programs.length}`} />
     <section className='section'>

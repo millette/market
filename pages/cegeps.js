@@ -23,7 +23,6 @@ const Cegeps = (props) => {
 
 Cegeps.getInitialProps = ({ query: { cegep } }) => ({ cegep })
 
-// const mapState = (state) => ({ cegeps: state.cegeps })
 const mapState = (state) => {
   const obj = {
     programs: {},
@@ -33,15 +32,6 @@ const mapState = (state) => {
     obj.programs[x.code_programme] = x.nom
   })
   return obj
-  /*
-  return {
-    programs: state.programs.map((x) => ({
-      nom: x.nom,
-      code_programme: x.code_programme
-    })),
-    cegeps: state.cegeps
-  }
-  */
 }
 
 export default withRematch(initStore, mapState)(Cegeps)
