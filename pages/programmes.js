@@ -14,8 +14,19 @@ const Programmes = (props) => {
   let cur = 'Tous' // hmm
 
   const only = (x) => {
+    let found
+    x.description.forEach((y) => {
+      if ((y.toLowerCase().indexOf('dessin') !== -1) || (y.toLowerCase().indexOf('portfolio') !== -1)) { found = true }
+    })
+
+    if (!found) {
+      x.commentaires.forEach((y) => {
+        if ((y.toLowerCase().indexOf('dessin') !== -1) || (y.toLowerCase().indexOf('portfolio') !== -1)) { found = true }
+      })
+    }
+
     if (props.famille) {
-      return x.famille.code === props.famille
+      return found && (x.famille.code === props.famille)
     }
     if (props.programme) {
       if (x.code_programme === props.programme) {
@@ -24,10 +35,11 @@ const Programmes = (props) => {
       }
       return false
     }
-    return true
+    return found
   }
 
   const z2 = props.programs.map((x) => {
+    nStudents += (x.statistiques_admission.automne && x.statistiques_admission.automne.tous_admis || 0) + (x.statistiques_admission.hiver && x.statistiques_admission.hiver.tous_admis || 0)
     if (x.famille.code === props.famille) {
       cur = x.famille.libelle
     }
@@ -49,7 +61,7 @@ const Programmes = (props) => {
       <div className='container'>
         <div className='buttons'>{z}</div>
         <div className='columns is-multiline'>
-          {allPrograms.slice(0, 50).map((x) => <div key={x.code_programme} className={`column${props.programme ? '' : ' is-half'}`}>
+          {allPrograms.map((x) => <div key={x.code_programme} className={`column${props.programme ? '' : ' is-half'}`}>
             <Programme multi={!props.programme} cegeps={props.cegeps.filter((z) => z.programmes.indexOf(x.code_programme) !== -1)} {...x} />
           </div>)}
         </div>
