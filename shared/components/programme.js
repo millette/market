@@ -70,10 +70,12 @@ const Programme = (props) => <div className='content box'>
     </div>
   </Fragment>}
 
-  <h4 className='title is-4'>Commentaires</h4>
-  {props.description.map((p, i) => <p key={i}>
-    {p}
-  </p>)}
+  {props.commentaires && (props.commentaires.length > 0) && <Fragment>
+    <h4 className='title is-4'>Commentaires</h4>
+    {props.commentaires.map((p, i) => <p key={i}>
+      {p}
+    </p>)}
+  </Fragment>}
 </div>
 
 export default Programme
