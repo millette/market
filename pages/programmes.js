@@ -56,7 +56,7 @@ const Programmes = (props) => {
 
   let nStudents = 0
   allPrograms.forEach((x) => {
-    nStudents += (x.statistiques_admission.automne && x.statistiques_admission.automne.tous_admis || 0) + (x.statistiques_admission.hiver && x.statistiques_admission.hiver.tous_admis || 0)
+    nStudents += ((x.statistiques_admission.automne && x.statistiques_admission.automne.tous_admis) || 0) + ((x.statistiques_admission.hiver && x.statistiques_admission.hiver.tous_admis) || 0)
   })
 
   return <Fragment>
