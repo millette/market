@@ -2,6 +2,15 @@
 
 // WIP
 import * as data from '../../data/programmes.json'
+import sanitize from 'sanitize-html'
+
+const saneOpts = {
+  allowedTags: ['br', 'p', 'b', 'i', 'em', 'strong', 'ul', 'ol', 'li'],
+  exclusiveFilter: (frame) => (frame.tag !== 'br') && !frame.text.trim()
+}
+
+const sane = (x) => sanitize(x.replace(/\n/g, '<br />'), saneOpts)
+  .replace(/'/g, '’')
 
 export default {
   state: data
@@ -13,12 +22,26 @@ export default {
     .map((x) => {
       return {
         ...x,
+        d2: sane(x.description),
+        /*
+        sanitize(x.description.replace(/\n/g, '<br />'), {
+          allowedTags: ['br', 'p', 'b', 'i', 'em', 'strong', 'ul', 'ol', 'li'],
+          exclusiveFilter: (frame) => (frame.tag !== 'br') && !frame.text.trim()
+        }).replace(/'/g, '’'),
+        */
         description: x.description
           .replace(/<h1>.*?<\/h1>/g, '')
           .replace(/(<p>|<\/p>)/g, '')
           .split('\n')
           .map((y) => y.trim())
           .filter(Boolean),
+        c2: sane(x.commentaires),
+        /*
+        c2: sanitize(x.commentaires.replace(/\n/g, '<br />'), {
+          allowedTags: ['br', 'p', 'b', 'i', 'em', 'strong', 'ul', 'ol', 'li'],
+          exclusiveFilter: (frame) => (frame.tag !== 'br') && !frame.text.trim()
+        }).replace(/'/g, '’'),
+        */
         commentaires: x.commentaires
           .split('\n')
           .map((y) => y.trim())

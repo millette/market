@@ -4,6 +4,8 @@ import React, { Fragment } from 'react'
 import Link from 'next/link'
 import lodashMap from 'lodash.map'
 
+const BOTH = false
+
 const Programme = (props) => <div className='content box'>
   {props.multi && <Link href={{ pathname: '/programmes', query: { programme: props.code_programme } }}><a>
     <h2 className='title is-2'>{props.nom}</h2>
@@ -22,10 +24,17 @@ const Programme = (props) => <div className='content box'>
       </li>)}
     </ul>
   </Fragment>}
+
   <h4 className='title is-4'>Description</h4>
-  {props.description.map((p, i) => <p key={i}>
-    {p}
-  </p>)}
+  <div dangerouslySetInnerHTML={{ __html: props.d2 }} />
+
+  {BOTH && <Fragment>
+    <h4 className='title is-4'>Description</h4>
+    {props.description.map((p, i) => <p key={i}>
+      {p}
+    </p>)}
+  </Fragment>}
+
   {props.exigences_du_marche && (props.exigences_du_marche.length > 0) && <Fragment>
     <h4 className='title is-4'>Exigences du marché</h4>
     <ul>
@@ -70,7 +79,12 @@ const Programme = (props) => <div className='content box'>
     </div>
   </Fragment>}
 
-  {props.commentaires && (props.commentaires.length > 0) && <Fragment>
+  {props.c2 && <Fragment>
+    <h4 className='title is-4'>Commentaires</h4>
+    <div dangerouslySetInnerHTML={{ __html: props.c2 }} />
+  </Fragment>}
+
+  {BOTH && props.commentaires && (props.commentaires.length > 0) && <Fragment>
     <h4 className='title is-4'>Commentaires</h4>
     {props.commentaires.map((p, i) => <p key={i}>
       {p}
