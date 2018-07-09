@@ -1,9 +1,9 @@
 {
-  "name": "portfolio-visuel",
+  "name": "market-college",
   "version": "0.0.0",
-  "description": "Portfolio visuel.",
+  "description": "Marché des CÉGEPS du Québec.",
   "license": "AGPL-3.0",
-  "repository": "millette/portfolio-visuel",
+  "repository": "millette/market",
   "author": {
     "name": "Robin Millette",
     "email": "robin@millette.info",
