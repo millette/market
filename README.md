@@ -1,7 +1,7 @@
-# Portfolio visuel
+# Marché des CÉGEPS du Québec
 
-* <https://github.com/millette/portfolio-visuel>
-* <https://pfv-askswyapcf.now.sh>
+* <https://github.com/millette/market>
+* <https://market-kycpznmrmb.now.sh/>
 
 Demo of a react/redux app built with [Next.js](https://nextjs.org/) and
 using [Bulma css](https://bulma.io/).
